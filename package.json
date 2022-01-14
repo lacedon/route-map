@@ -12,7 +12,7 @@
     "test": "jest",
     "typeCheck": "tsc --noEmit --project tsconfig.json",
     "lint-staged": "lint-staged",
-    "full-check": "npm test && npm run typeCheck && npm run lint-staged",
+    "full-check": "npm run test && npm run typeCheck && npm run lint-staged",
     "prepublishOnly": "npm run full-check",
     "preversion": "npm run full-check",
     "version": "npm run full-check && git add -A src",
@@ -49,7 +49,8 @@
     "lint-staged": "^12.1.7",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "ts-jest": "^27.1.2"
   },
   "lint-staged": {
     "{src,apps,libs,test}/**/*.{js,ts,json}": [
@@ -57,5 +58,22 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   }
 }
