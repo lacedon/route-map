@@ -1,4 +1,4 @@
-import { normalizeQueryString } from './normalize-query-string';
+import { normalizeQueryString } from './index';
 
 test('normalizeQueryString should return false for null', () => {
   expect(normalizeQueryString('https://test.test/?&&asd=123&&&a=1&&')).toEqual(

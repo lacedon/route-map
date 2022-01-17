@@ -1,4 +1,4 @@
-import { isDefined } from './is-defined';
+import { isDefined } from './index';
 
 describe('isDefined should return false for not defined values', () => {
   test('isDefined should return false for null', () => {

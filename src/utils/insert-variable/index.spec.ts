@@ -1,4 +1,4 @@
-import { insertVariable, insertVariables } from './insert-variable';
+import { insertVariable, insertVariables } from './index';
 
 describe('insertVariable should return a new string with a variable into base string', () => {
   test('insertVariable should set a variable by a key', () => {
@@ -49,7 +49,7 @@ describe('insertVariables should return a new string with variable map into base
       ),
     ).toEqual('start-main-end');
     expect(
-      insertVariables<{ key: string, key1: string }>(
+      insertVariables<{ key: string; key1: string }>(
         'start-{key}-{key1}-end',
         { key: 'main' },
         { key1: 'default' },
