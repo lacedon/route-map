@@ -2,6 +2,12 @@ import { isDefined } from '@/utils/is-defined';
 
 export type Value = void | string | number | boolean;
 
+export type InsertVariable = (
+  result: string,
+  key: string,
+  value: Value,
+) => string;
+
 export function insertVariable(
   result: string,
   key: string,
@@ -17,11 +23,7 @@ export function insertVariables<Variables extends Record<string, Value> | void>(
   url: string,
   variables: Partial<Variables>,
   defaultVariables: void | Partial<Variables>,
-  insertVariableMethod: (
-    result: string,
-    key: string,
-    value: Value,
-  ) => string = insertVariable,
+  insertVariableMethod: InsertVariable = insertVariable,
 ): string {
   let resultURL = url;
   const variableKeys = new Set(variables ? Object.keys(variables) : undefined);
