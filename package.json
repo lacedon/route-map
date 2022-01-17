@@ -12,7 +12,7 @@
     "test": "jest",
     "typeCheck": "tsc --noEmit --project tsconfig.json",
     "lint-staged": "lint-staged",
-    "full-check": "npm run test && npm run typeCheck && npm run lint-staged",
+    "full-check": "npm run test && npm run typeCheck && npm run lint && npm run format",
     "prepublishOnly": "npm run full-check",
     "preversion": "npm run full-check",
     "version": "npm run full-check && git add -A src",

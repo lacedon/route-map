@@ -1,9 +1,9 @@
-import { normalizeQueryString } from '@/utils/normalize-query-string';
 import {
   insertVariables,
   InsertVariable,
   Value,
 } from '@/utils/insert-variable';
+import { normalizeQueryString } from '@/utils/normalize-query-string';
 
 export type Route<Variables = void> = (variables: Partial<Variables>) => string;
 
@@ -30,7 +30,7 @@ function createRoute<Variables extends Record<string, Value> | void = void>(
   defaultVariables?: Partial<Variables>,
   { insertVariable }: Options = {},
 ): Route<Variables> {
-  if (typeof url === 'function')
+  if (typeof url === 'function') {
     return (variables) =>
       normalizeQueryString(
         insertVariables(
@@ -40,9 +40,11 @@ function createRoute<Variables extends Record<string, Value> | void = void>(
           insertVariable,
         ),
       );
+  }
 
-  if (typeof url !== 'string' || !/\{(?:\.{3})?\w+\}/.test(url))
+  if (typeof url !== 'string' || !/\{(?:\.{3})?\w+\}/.test(url)) {
     return () => url;
+  }
 
   return (variables) =>
     normalizeQueryString(
