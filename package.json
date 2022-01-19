@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc --project tsconfig.build.json",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\" \"test/**/*.ts\" \"test/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "cross-env ESLINT_STRICT=1 eslint \"{src,test}/**/*.{ts,js}\" --fix",
     "test": "jest",
     "typeCheck": "tsc --noEmit --project tsconfig.json",
