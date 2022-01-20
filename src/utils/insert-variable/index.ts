@@ -1,4 +1,4 @@
-import { isDefined } from '@/utils/is-defined';
+import { isDefined } from '../is-defined';
 
 export type Value = void | string | number | boolean;
 

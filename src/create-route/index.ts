@@ -2,8 +2,8 @@ import {
   insertVariables,
   InsertVariable,
   Value,
-} from '@/utils/insert-variable';
-import { normalizeQueryString } from '@/utils/normalize-query-string';
+} from '../utils/insert-variable';
+import { normalizeQueryString } from '../utils/normalize-query-string';
 
 export type Route<Variables = void> = (variables: Partial<Variables>) => string;
 
