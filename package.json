@@ -1,6 +1,6 @@
 {
   "name": "@lacedon/route-map",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "NPM package for create a map of routes for easer support and refactoring",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
