@@ -7,19 +7,19 @@ import { normalizeQueryString } from '../utils/normalize-query-string';
 
 export type Route<Variables = void> = (variables: Partial<Variables>) => string;
 
-type CreateURL<Variables> = (variables: Partial<Variables>) => string;
+type CreateURL<Variables> = (variables: Variables) => string;
 
 interface Options {
   insertVariable?: InsertVariable;
 }
 
-function createRoute<Variables extends Record<string, Value> | void = void>(
+function createRoute<Variables extends Record<string, unknown> | void = void>(
   url: string,
   defaultVariables?: Partial<Variables>,
   options?: Options,
 ): Route<Variables>;
 
-function createRoute<Variables extends Record<string, Value> | void = void>(
+function createRoute<Variables extends unknown | void = void>(
   createURL: CreateURL<Variables>,
   defaultVariables?: Partial<Variables>,
   options?: Options,
@@ -34,7 +34,7 @@ function createRoute<Variables extends Record<string, Value> | void = void>(
     return (variables) =>
       normalizeQueryString(
         insertVariables(
-          url(variables),
+          url({ ...defaultVariables, ...variables } as Variables),
           variables,
           defaultVariables,
           insertVariable,

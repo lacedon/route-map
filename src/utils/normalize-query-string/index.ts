@@ -1,3 +1,5 @@
+export type NormalizeQueryString = (url: string) => string;
+
 export function normalizeQueryString(url: string): string {
   return url
     .replace(/(\?|&)&*/g, '$1') // remove ?&, &&, etc.

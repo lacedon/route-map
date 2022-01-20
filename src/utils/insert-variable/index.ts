@@ -1,6 +1,6 @@
 import { isDefined } from '../is-defined';
 
-export type Value = void | string | number | boolean;
+export type Value = string | number | boolean | null | void | undefined;
 
 export type InsertVariable = (
   result: string,
