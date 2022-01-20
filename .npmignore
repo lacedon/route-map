@@ -15,7 +15,7 @@ npm-debug.log
 
 src
 .husky
-.eslintrc
+.eslintrc.js
 .prettierrc
 jest.config.js
 LICENSE
