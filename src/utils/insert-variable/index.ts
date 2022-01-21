@@ -32,7 +32,7 @@ export function insertVariables<Variables extends Record<string, Value> | void>(
     resultURL = insertVariableMethod(
       resultURL,
       key,
-      variables[key] ?? defaultVariables[key],
+      variables?.[key] ?? defaultVariables?.[key],
     );
   }
 
